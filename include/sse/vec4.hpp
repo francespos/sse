@@ -8,28 +8,28 @@ namespace sse
 {
 struct alignas(16) vec4
 {
-union
-{
-    __m128 m_data;
-    
-    struct
+    union
     {
-        float x, y, z, w;
+        __m128 m_data;
+        
+        struct
+        {
+            float x, y, z, w;
+        };
+
+        float m_elems[4];
     };
 
-    float m_elems[4];
-};
+    vec4();
+    vec4(float x, float y, float z, float w);
 
-vec4();
-vec4(float x, float y, float z, float w);
+    float& operator[](size_t pos);
+    float operator[](size_t pos) const;
 
-float& operator[](size_t pos);
-float operator[](size_t pos) const;
-
-vec4 operator+(const vec4& other) const;
-vec4 operator-(const vec4& other) const;
-vec4 operator*(float other) const;
-vec4 operator/(float other) const;
+    vec4 operator+(const vec4& other) const;
+    vec4 operator-(const vec4& other) const;
+    vec4 operator*(float other) const;
+    vec4 operator/(float other) const;
 };
 
 vec4 operator*(float lhs, const vec4& rhs);
