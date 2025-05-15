@@ -2,6 +2,7 @@
 #define SSE_VEC4_HPP
 
 #include <xmmintrin.h>
+#include <cstddef>
 
 namespace sse
 {
@@ -21,7 +22,17 @@ union
 
 vec4();
 vec4(float x, float y, float z, float w);
+
+float& operator[](size_t pos);
+float operator[](size_t pos) const;
+
+vec4 operator+(const vec4& other) const;
+vec4 operator-(const vec4& other) const;
+vec4 operator*(float other) const;
+vec4 operator/(float other) const;
 };
+
+vec4 operator*(float lhs, const vec4& rhs);
 } // namespace sse
 
 #endif // ifndef SSE_VEC4_HPP
