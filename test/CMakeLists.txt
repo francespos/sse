@@ -1,5 +1,8 @@
 enable_testing()
-add_executable(test test.cpp)
-target_link_libraries(test PRIVATE sse)
-set_property(TARGET test PROPERTY CXX_STANDARD 14)
-add_test(NAME Test COMMAND test)
+
+add_executable(vec4_test vec4_test.cpp)
+
+target_link_libraries(vec4_test PRIVATE sse)
+set_property(TARGET vec4_test PROPERTY CXX_STANDARD 14)
+
+add_test(NAME Vec4Test COMMAND vec4_test)

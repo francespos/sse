@@ -1,5 +1,4 @@
-#ifndef SSE_VEC4_HPP
-#define SSE_VEC4_HPP
+#pragma once
 
 #include <xmmintrin.h>
 #include <cstddef>
@@ -30,5 +29,3 @@ namespace sse {
 }
 
 sse::vec4 operator*(float lhs, const sse::vec4& rhs);
-
-#endif // ifndef SSE_VEC4_HPP
