@@ -23,4 +23,5 @@ int main() {
     std::cout << "v1 - v2 = " << v1 - v2 << "\n";
     std::cout << "4.0f * v1 = " << 4.0f * v1 << "\n";
     std::cout << "v1 / 2.0f = " << v1 / 2.0f << "\n"; 
+    std::cout << "v1.dot(v2) = " << v1.dot(v2) << "\n";
 }

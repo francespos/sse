@@ -1,6 +1,6 @@
 #pragma once
 
-#include <xmmintrin.h>
+#include <smmintrin.h>
 #include <cstddef>
 
 namespace sse {
@@ -21,10 +21,20 @@ namespace sse {
         float& operator[](size_t pos);
         float operator[](size_t pos) const;
 
+        bool operator==(const vec4& other) const;
+        bool operator!=(const vec4& other) const;
+
         vec4 operator+(const vec4& other) const;
         vec4 operator-(const vec4& other) const;
         vec4 operator*(float other) const;
         vec4 operator/(float other) const;
+
+        vec4& operator+=(const vec4& other);
+        vec4& operator-=(const vec4& other);
+        vec4& operator*=(float other);
+        vec4& operator/=(float other);
+
+        float dot(const vec4& other) const;
     };
 }
 

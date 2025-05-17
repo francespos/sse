@@ -14,6 +14,15 @@ namespace sse {
         return m_elems[pos];
     }
 
+    bool vec4::operator==(const vec4& other) const {
+        auto cmp = _mm_cmpeq_ps(m_data, other.m_data);
+        return _mm_movemask_ps(cmp) == 0xF;
+    }
+
+    bool vec4::operator!=(const vec4& other) const {
+        return !(*this == other);
+    }
+
     vec4 vec4::operator+(const vec4& other) const {
         vec4 ret;
         ret.m_data = _mm_add_ps(m_data, other.m_data);
@@ -42,6 +51,31 @@ namespace sse {
         ret.m_data = _mm_div_ps(m_data, divisor);
 
         return ret;
+    }
+
+    vec4& vec4::operator+=(const vec4& other) {
+        *this = *this + other;
+        return *this;
+    }
+
+    vec4& vec4::operator-=(const vec4& other) {
+        *this = *this - other;
+        return *this;
+    }
+
+    vec4& vec4::operator*=(float other) {
+        *this = *this * other;
+        return *this;
+    }
+
+    vec4& vec4::operator/=(float other) {
+        *this = *this / other;
+        return *this;
+    }
+
+    float vec4::dot(const vec4& other) const {
+        auto dp = _mm_dp_ps(m_data, other.m_data, 0xF1);
+        return _mm_cvtss_f32(dp);    
     }
 }
 
