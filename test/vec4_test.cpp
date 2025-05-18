@@ -1,16 +1,4 @@
-#include <iostream>
-#include <sse/vec4.hpp>
-
-std::ostream& operator<<(std::ostream& out, const sse::vec4& v) {
-    out << "[ ";
-
-    for (size_t i = 0; i < 4; ++i) {
-        out << v[i] << " ";
-    }
-
-    out << "]";
-    return out;
-}
+#include "test.hpp"
 
 int main() {
     sse::vec4 v(1.0f, 2.0f, 3.0f, 4.0f);
