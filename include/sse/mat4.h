@@ -1,4 +1,4 @@
-#include "vec4.hpp"
+#include "vec4.h"
 
 namespace sse {
     class mat4 {

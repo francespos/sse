@@ -1,4 +1,4 @@
-#include <sse/mat4.hpp>
+#include <sse/mat4.h>
 
 namespace sse {
     mat4::mat4() {}

@@ -1,4 +1,4 @@
-#include "test.hpp"
+#include "test.h"
 
 int main() {
     sse::mat4 m(1.0f, 2.0f, 3.0f, 4.0f, 

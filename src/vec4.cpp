@@ -1,4 +1,4 @@
-#include <sse/vec4.hpp>
+#include <sse/vec4.h>
 
 namespace sse {
     vec4::vec4() {}
@@ -54,22 +54,24 @@ namespace sse {
     }
 
     vec4& vec4::operator+=(const vec4& other) {
-        *this = *this + other;
+        m_data = _mm_add_ps(m_data, other.m_data);
         return *this;
     }
 
     vec4& vec4::operator-=(const vec4& other) {
-        *this = *this - other;
+        m_data = _mm_sub_ps(m_data, other.m_data);
         return *this;
     }
 
     vec4& vec4::operator*=(float other) {
-        *this = *this * other;
+        auto factor = _mm_set_ps1(other);
+        m_data = _mm_mul_ps(m_data, factor);
         return *this;
     }
 
     vec4& vec4::operator/=(float other) {
-        *this = *this / other;
+        auto divisor = _mm_set_ps1(other);
+        m_data = _mm_div_ps(m_data, divisor);
         return *this;
     }
 

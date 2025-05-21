@@ -1,4 +1,4 @@
-#include "test.hpp"
+#include "test.h"
 
 std::ostream& operator<<(std::ostream& out, const sse::vec4& v) {
     out << "[ ";
@@ -11,7 +11,7 @@ std::ostream& operator<<(std::ostream& out, const sse::vec4& v) {
     return out;
 }
 
-std::ostream& operator<<(std::ostream& out, sse::mat4& m) {
+std::ostream& operator<<(std::ostream& out, const sse::mat4& m) {
     for (size_t i = 0; i < 4; ++i) {
         out << "[ ";
 
